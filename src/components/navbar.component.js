@@ -13,6 +13,10 @@ export default class Navbar extends Component {
           <Link to="/agents" className="nav-link">Agents</Link>
           </li>
           <li className="navbar-item">
+          <Link to="/agent/createjointoken" className="nav-link">Join Token</Link>
+          </li>
+
+          <li className="navbar-item">
           <Link to="/entries" className="nav-link">Entries</Link>
           </li>
  

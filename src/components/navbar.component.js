@@ -20,6 +20,10 @@ export default class Navbar extends Component {
           <Link to="/entries" className="nav-link">Entries</Link>
           </li>
  
+          <li className="navbar-item">
+          <Link to="/entry/create" className="nav-link">Create Entry</Link>
+          </li>
+
         </ul>
         </div>
       </nav>

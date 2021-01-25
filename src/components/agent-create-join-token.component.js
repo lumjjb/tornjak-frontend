@@ -1,6 +1,6 @@
-
 import React, { Component } from 'react';
 import axios from 'axios';
+import GetApiServerUri from './helpers';
 
 
 export default class CreateJoinToken extends Component {
@@ -167,7 +167,7 @@ console.log(a.substr(sp))*/
     if (this.state.token !== "") {
         cjtData["token"] = this.state.token;
     }
-    axios.post('http://localhost:10000/agent/createjointoken', cjtData)
+    axios.post(GetApiServerUri('/agent/createjointoken'), cjtData)
       .then(res => this.setState({ message: "Requst:" + JSON.stringify(cjtData,null, ' ')+ "\n\nSuccess:" + JSON.stringify(res.data, null, ' ')}))
       .catch(err => this.setState({ message: "ERROR:" + err }))
     //window.location = '/';

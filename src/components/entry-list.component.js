@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios'
+import GetApiServerUri from './helpers';
 
 const Entry = props => (
   <tr>
@@ -30,7 +31,7 @@ export default class EntryList extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:10000/entry/list', { crossdomain: true })
+    axios.get(GetApiServerUri('/entry/list'), { crossdomain: true })
       .then(response => {
           console.log(response.data);
         this.setState({ entries:response.data["entries"]} );

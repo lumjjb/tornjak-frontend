@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios'
+import axios from 'axios';
+import GetApiServerUri from './helpers';
 
 const Agent = props => (
   <tr>
@@ -30,7 +31,7 @@ export default class AgentList extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:10000/agent/list', { crossdomain: true })
+    axios.get(GetApiServerUri('/agent/list'), { crossdomain: true })
       .then(response => {
         this.setState({ agents:response.data["agents"]} );
       })

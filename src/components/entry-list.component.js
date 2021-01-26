@@ -54,11 +54,15 @@ export default class EntryList extends Component {
 
   entryList() {
       //return this.state.entries.toString()
-    return this.state.entries.map(currentEntry => {
-      return <Entry key={currentEntry.id} 
-                entry={currentEntry} 
-                deleteEntry={this.deleteEntry}/>;
-    })
+    if (typeof this.state.entries !== 'undefined') {
+        return this.state.entries.map(currentEntry => {
+          return <Entry key={currentEntry.id} 
+                    entry={currentEntry} 
+                    deleteEntry={this.deleteEntry}/>;
+        })
+    } else {
+        return ""
+    }
   }
 
   render() {

@@ -70,12 +70,16 @@ export default class AgentList extends Component {
 
   agentList() {
       //return this.state.agents.toString()
-    return this.state.agents.map(currentAgent => {
-      return <Agent key={currentAgent.id.path} 
-                agent={currentAgent} 
-                banAgent={this.banAgent} 
-                deleteAgent={this.deleteAgent}/>;
-    })
+    if (typeof this.state.agents !== 'undefined') {
+        return this.state.agents.map(currentAgent => {
+          return <Agent key={currentAgent.id.path} 
+                    agent={currentAgent} 
+                    banAgent={this.banAgent} 
+                    deleteAgent={this.deleteAgent}/>;
+        })
+    } else {
+        return ""
+    }
   }
 
   render() {
